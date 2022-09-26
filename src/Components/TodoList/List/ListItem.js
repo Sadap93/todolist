@@ -7,6 +7,11 @@ import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 
 const ListItem = ({ title, date, status, setTodos, id, todos }) => {
+  //States:
+  const [isEdit, setIsEdit] = useState(false);
+  const [newTitle, setNewTitle] = useState(title);
+
+  //Handlers:
   const setStatusHandler = () => {
     const changedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -32,12 +37,10 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const [isEdit, setIsEdit] = useState(false);
-  const [newTitle, setNewTitle] = useState(title);
-
   const newTitleChangeHandler = (event) => {
     setNewTitle(event.target.value);
   };
+
   const acceptSettingsHandler = () => {
     const changedTitle = todos.map((todo) => {
       if (todo.id === id) {
@@ -45,7 +48,6 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
       }
       return todo;
     });
-    console.log(changedTitle);
     setTodos(changedTitle);
     setIsEdit(!isEdit);
   };
@@ -54,6 +56,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
     setIsEdit(!isEdit);
     setNewTitle(title);
   };
+
   return (
     <div
       className="flex-center card todo"
@@ -64,9 +67,10 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
       {isEdit && (
         <input value={newTitle} onChange={newTitleChangeHandler}></input>
       )}
-      {!isEdit && <div className={`${setClass()}`}>{title}</div>}
       {!isEdit && (
-        <div>
+        <>
+          <div className={`${setClass()}`}>{title}</div>
+
           <div className="flex-center settings">
             <button className="settings-btn" onClick={setStatusHandler}>
               <FontAwesomeIcon icon={faCheck} className="check-icon" />
@@ -82,7 +86,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
             </button>
           </div>
           <div className="margin-sm date">{date}</div>
-        </div>
+        </>
       )}
       {isEdit && (
         <div>
