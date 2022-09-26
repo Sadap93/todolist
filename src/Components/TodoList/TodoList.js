@@ -7,7 +7,6 @@ import { DUMMY_TODOS } from "../../todoArray";
 const TodoList = () => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
  
-
   return (
     <div className="todo-list">
       <Form

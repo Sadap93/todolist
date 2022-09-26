@@ -1,7 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortAmountDownAlt } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import FilterAndSort from "./FilterAndSort";
 
 const Form = ({ setTodos, todos }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -10,6 +9,7 @@ const Form = ({ setTodos, todos }) => {
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
+
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
@@ -20,6 +20,7 @@ const Form = ({ setTodos, todos }) => {
     status: "progress",
     id: uuidv4(),
   };
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -52,21 +53,7 @@ const Form = ({ setTodos, todos }) => {
           Add
         </button>
       </form>
-      <div className="filter-sort flex-center ">
-        <label htmlFor="filter">Filter:</label>
-        <select className="margin-sm" id="filter">
-          <option>Option1</option>
-          <option>Option2</option>
-          <option>Option3</option>
-        </select>
-        <label htmlFor="sort">Sort:</label>
-        <select className="margin-sm" id="sort">
-          <option>Option1</option>
-          <option>Option2</option>
-          <option>Option3</option>
-        </select>
-        <FontAwesomeIcon className="fav-icon-sort" icon={faSortAmountDownAlt} />
-      </div>
+      <FilterAndSort todos={todos} setTodos={setTodos}/>
     </div>
   );
 };
