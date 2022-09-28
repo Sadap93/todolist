@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const FilterAndSort = ({ todos, setTodos }) => {
   const [copyTodos, setCopyTodos] = useState(todos);
+
   const onChangeFilterHandler = (event) => {
     const filteredTodos = copyTodos.filter((todo) => {
       if (event.target.value === "all") {
@@ -12,6 +13,17 @@ const FilterAndSort = ({ todos, setTodos }) => {
       return todo.status === event.target.value;
     });
     setTodos(filteredTodos);
+  };
+
+  const onChangeSortHandler = (event) => {
+    const sortedTodos = copyTodos.sort((a, b) => {
+      if (event.target.value === "oldestToNewest") {
+        return a.date - b.date;
+      } else if (event.target.value === "newestToOldest")
+        return b.date - a.date;
+    });
+    console.log(sortedTodos);
+    setTodos(sortedTodos);
   };
 
   return (
@@ -27,9 +39,14 @@ const FilterAndSort = ({ todos, setTodos }) => {
         <option value={"success"}>Success</option>
       </select>
       <label htmlFor="sort">Sort:</label>
-      <select className="margin-sm" id="sort">
-        <option>Sort Newest to Oldest</option>
-        <option>Sort Oldest to Newest</option>
+      <select
+        className="margin-sm"
+        id="sort"
+        placeholder="Sort your todos"
+        onChange={onChangeSortHandler}
+      >
+        <option value={"newestToOldest"}>Sort Newest to Oldest</option>
+        <option value={"oldestToNewest"}>Sort Oldest to Newest</option>
       </select>
       <FontAwesomeIcon className="fav-icon-sort" icon={faSortAmountDownAlt} />
     </div>
