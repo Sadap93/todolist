@@ -4,15 +4,18 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
-import Date from "./Date";
-import React, { useState } from "react";
+import DateComponent from "./DateComponent";
+import React, { useEffect, useState } from "react";
 
 const ListItem = ({ title, date, status, setTodos, id, todos }) => {
-  //States:
+  
+  const formatDate = () =>
+    new Date(date).toLocaleDateString().replaceAll(". ", "-").slice(0, 10);
+
   const [isEdit, setIsEdit] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
+  const [newDate, setNewDate] = useState(formatDate());
 
-  //Handlers:
   const setStatusHandler = () => {
     const changedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -43,13 +46,14 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
   };
 
   const acceptSettingsHandler = () => {
-    const changedTitle = todos.map((todo) => {
+    const changedTodo = todos.map((todo) => {
       if (todo.id === id) {
         todo.title = newTitle;
+        todo.date = new Date(newDate);
       }
       return todo;
     });
-    setTodos(changedTitle);
+    setTodos(changedTodo);
     setIsEdit(!isEdit);
   };
 
@@ -86,7 +90,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
                 <FontAwesomeIcon icon={faTrash} className="trash-icon" />
               </button>
             </div>
-            <Date date={date} />
+            <DateComponent date={date} />
           </div>
         </>
       )}
@@ -107,7 +111,12 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
               <FontAwesomeIcon icon={faCircleXmark} className="trash-icon" />
             </button>
           </div>
-          <Date date={date} />
+          <DateComponent
+            date={date}
+            isEdit={isEdit}
+            newDate={newDate}
+            setNewDate={setNewDate}
+          />
         </div>
       )}
     </div>
