@@ -3,6 +3,10 @@
   background-color: $form-color;
 }
 
+form{
+  justify-content: center;
+}
+
 .filter-sort {
   width: 100%;
   justify-content: flex-end;
@@ -11,4 +15,16 @@
 .fav-icon-sort{
   color: $myGreen-color;
   font-size: $size-md;
+}
+
+.input-wrapper {
+  height: 50px;
+}
+
+.warning {
+  display: block;
+  padding-left: $size-sm;
+  color: $btn-wr-color;
+  font-size: 10px;
+  font-weight: bold;
 }

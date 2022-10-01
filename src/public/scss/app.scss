@@ -1,21 +1,20 @@
 // global variables: *colors
-$form-color: #E1F3FD;
+$form-color: #e1f3fd;
 $item-color: #c3f5ec;
 $btn-color: #fa6400;
-$btn-focus-color:#fb8332;
+$btn-focus-color: #fb8332;
 $btn-active-color: #c85000;
-$myGreen-color:  #0DBC81;
+$btn-wr-color: #f85555;
+$myGreen-color: #0dbc81;
 // global variables: *sizes
 $size-sm: 8px;
 $size-md: 14px;
 $size-lg: 20px;
 $size-xlg: 30px;
 
-
-
 @import "./Components/TodoList.scss";
 
-*{
+* {
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -34,7 +33,13 @@ $size-xlg: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 10px 0px;
 }
 
-  .margin-sm {
-   margin: $size-sm;
- }
+.padding-sm {
+  padding: $size-md;
+}
 
+.margin-sm {
+  margin: $size-sm;
+}
+.margin-md {
+  margin: $size-md;
+}

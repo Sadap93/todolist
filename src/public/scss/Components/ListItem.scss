@@ -8,18 +8,18 @@
   
 }
 
-.date {
-  text-align: center;
-}
-
 .check-icon {
   color: $myGreen-color;
 }
 
 .trash-icon {
-  color:#F85555;
+  color: $btn-wr-color;
 }
 
 .pencil-icon {
   color:#478CE6;
+}
+
+.settings{
+  justify-content: center;
 }

@@ -4,6 +4,7 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import Date from "./Date";
 import React, { useState } from "react";
 
 const ListItem = ({ title, date, status, setTodos, id, todos }) => {
@@ -70,22 +71,23 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
       {!isEdit && (
         <>
           <div className={`${setClass()}`}>{title}</div>
-
-          <div className="flex-center settings">
-            <button className="settings-btn" onClick={setStatusHandler}>
-              <FontAwesomeIcon icon={faCheck} className="check-icon" />
-            </button>
-            <button
-              className="margin-sm settings-btn"
-              onClick={() => setIsEdit(!isEdit)}
-            >
-              <FontAwesomeIcon icon={faPencil} className="pencil-icon" />
-            </button>
-            <button className="settings-btn" onClick={deleteTodoHandler}>
-              <FontAwesomeIcon icon={faTrash} className="trash-icon" />
-            </button>
+          <div>
+            <div className="flex-center settings">
+              <button className="settings-btn" onClick={setStatusHandler}>
+                <FontAwesomeIcon icon={faCheck} className="check-icon" />
+              </button>
+              <button
+                className="margin-sm settings-btn"
+                onClick={() => setIsEdit(!isEdit)}
+              >
+                <FontAwesomeIcon icon={faPencil} className="pencil-icon" />
+              </button>
+              <button className="settings-btn" onClick={deleteTodoHandler}>
+                <FontAwesomeIcon icon={faTrash} className="trash-icon" />
+              </button>
+            </div>
+            <Date date={date} />
           </div>
-          <div className="margin-sm date">{date}</div>
         </>
       )}
       {isEdit && (
@@ -105,7 +107,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
               <FontAwesomeIcon icon={faCircleXmark} className="trash-icon" />
             </button>
           </div>
-          <div className="margin-sm date">{date}</div>
+          <Date date={date} />
         </div>
       )}
     </div>
