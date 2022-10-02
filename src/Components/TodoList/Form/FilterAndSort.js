@@ -22,7 +22,6 @@ const FilterAndSort = ({ todos, setTodos }) => {
       } else if (event.target.value === "newestToOldest")
         return b.date - a.date;
     });
-    console.log(sortedTodos);
     setTodos([...sortedTodos]);
   };
 
@@ -40,11 +39,13 @@ const FilterAndSort = ({ todos, setTodos }) => {
       </select>
       <label htmlFor="sort">Sort:</label>
       <select
+      defaultValue={"default"}
         className="margin-sm"
         id="sort"
         placeholder="Sort your todos"
         onChange={onChangeSortHandler}
       >
+        <option disabled value={"default"}> -- select an option -- </option>
         <option value={"newestToOldest"}>Sort Newest to Oldest</option>
         <option value={"oldestToNewest"}>Sort Oldest to Newest</option>
       </select>

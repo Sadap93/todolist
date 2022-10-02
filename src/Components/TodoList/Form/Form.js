@@ -83,11 +83,12 @@ const Form = ({ setTodos, todos }) => {
             style={emptyInputStyle}
             className="margin-sm"
             type="text"
+
             placeholder="Add new..."
             value={enteredTitle}
             onChange={titleChangeHandler}
-            ></input>
-            {titileIsValid && <small className="warning">Must be filled!</small>}
+          ></input>
+          {titileIsValid && <small className="warning">Must be filled!</small>}
         </div>
         <div className="input-wrapper">
           <input
@@ -97,6 +98,7 @@ const Form = ({ setTodos, todos }) => {
             value={enteredDate}
             onChange={dateChangeHandler}
           ></input>
+
           {dateIsValid && <small className="warning">Must be chosen!</small>}
         </div>
         <button className="add-btn margin-sm" type="submit">
