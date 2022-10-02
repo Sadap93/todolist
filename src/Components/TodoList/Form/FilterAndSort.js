@@ -1,26 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortAmountDownAlt } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 
-const FilterAndSort = ({ todos, setTodos }) => {
-  const [copyTodos, setCopyTodos] = useState(todos);
+const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
 
   const onChangeFilterHandler = (event) => {
-    const filteredTodos = copyTodos.filter((todo) => {
+    const filteredTodos = todos.filter((todo) => {
       if (event.target.value === "all") {
         return todo;
       }
       return todo.status === event.target.value;
     });
-    setTodos(filteredTodos);
+    seTodosForList(filteredTodos);
   };
-  
+
   const onChangeSortHandler = (event) => {
-    const sortedTodos = todos.sort((a, b) => {
+    const copyTodos = JSON.parse(localStorage.getItem("todoData"));
+    const sortedTodos = copyTodos.sort((a, b) => {
       if (event.target.value === "oldestToNewest") {
-        return a.date - b.date;
+        return new Date(a.date) - new Date(b.date);
       } else if (event.target.value === "newestToOldest")
-      return b.date - a.date;
+        return new Date(b.date) - new Date(a.date);
     });
     setTodos([...sortedTodos]);
   };
@@ -39,7 +38,7 @@ const FilterAndSort = ({ todos, setTodos }) => {
       </select>
       <label htmlFor="sort">Sort:</label>
       <select
-      defaultValue={"default"}
+        defaultValue={"default"}
         className="margin-sm"
         id="sort"
         placeholder="Sort your todos"
