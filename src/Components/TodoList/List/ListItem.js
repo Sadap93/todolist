@@ -5,10 +5,9 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import DateComponent from "./DateComponent";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const ListItem = ({ title, date, status, setTodos, id, todos }) => {
-  
   const formatDate = () =>
     new Date(date).toLocaleDateString().replaceAll(". ", "-").slice(0, 10);
 

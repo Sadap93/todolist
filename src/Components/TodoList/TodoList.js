@@ -1,11 +1,21 @@
 import React from "react";
 import List from "./List/List";
 import Form from "./Form/Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DUMMY_TODOS } from "../../todoArray";
 
 const TodoList = () => {
-  const [todos, setTodos] = useState(DUMMY_TODOS);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const todoFromLocalStorage = localStorage.getItem("todoData");
+    if (todoFromLocalStorage !== null)
+      setTodos(JSON.parse(todoFromLocalStorage));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todoData", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="todo-list">
