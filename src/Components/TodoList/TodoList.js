@@ -2,7 +2,6 @@ import React from "react";
 import List from "./List/List";
 import Form from "./Form/Form";
 import { useEffect, useState } from "react";
-import { DUMMY_TODOS } from "../../todoArray";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -14,15 +13,17 @@ const TodoList = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todoData", JSON.stringify(todos));
+    if (todos.length > 0) {
+      localStorage.setItem("todoData", JSON.stringify(todos));
+    }
   }, [todos]);
 
-  return (
-    <div className="todo-list">
-      <Form todos={todos} setTodos={setTodos} />
-      <List todos={todos} setTodos={setTodos} />
-    </div>
-  );
+      return (
+      <div className="todo-list">
+        <Form todos={todos} setTodos={setTodos} />
+        <List todos={todos} setTodos={setTodos} />
+      </div>
+    );
 };
 
 export default TodoList;

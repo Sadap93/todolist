@@ -14,13 +14,13 @@ const FilterAndSort = ({ todos, setTodos }) => {
     });
     setTodos(filteredTodos);
   };
-
+  
   const onChangeSortHandler = (event) => {
     const sortedTodos = todos.sort((a, b) => {
       if (event.target.value === "oldestToNewest") {
         return a.date - b.date;
       } else if (event.target.value === "newestToOldest")
-        return b.date - a.date;
+      return b.date - a.date;
     });
     setTodos([...sortedTodos]);
   };

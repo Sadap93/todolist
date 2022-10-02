@@ -1,12 +1,11 @@
 const DateComponent = ({ date, isEdit, newDate, setNewDate }) => {
-
   const newDateChangeHandler = (event) => {
     setNewDate(event.target.value);
   };
-  
-  const year = date.getFullYear();
-  const month = date.toLocaleString("hu-HU", { month: "long" });
-  const day = date.toLocaleString("hu-HU", { day: "2-digit" });
+  const initDate = new Date(date);
+  const year = initDate.getFullYear();
+  const month = initDate.toLocaleString("hu-HU", { month: "long" });
+  const day = initDate.toLocaleString("hu-HU", { day: "2-digit" });
   return (
     <>
       {isEdit && (
