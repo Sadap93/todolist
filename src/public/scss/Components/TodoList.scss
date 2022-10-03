@@ -11,6 +11,12 @@
   border-radius: $size-sm;
 }
 
+@media (max-width: 550px) {
+  .todo-list {
+    width: 350px;
+  }
+}
+
 //List.js wrapper:
 .wrapper {
   overflow: auto;

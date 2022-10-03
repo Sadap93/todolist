@@ -73,7 +73,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
       )}
       {!isEdit && (
         <>
-          <div className={`${setClass()}`}>{title}</div>
+          <div className={`${setClass()} media-title-date`}>{title}</div>
           <div>
             <div className="flex-center settings">
               <button className="settings-btn" onClick={setStatusHandler}>

@@ -17,7 +17,7 @@ const DateComponent = ({ date, isEdit, newDate, setNewDate }) => {
         ></input>
       )}
       {!isEdit && (
-        <div className="margin-sm">
+        <div className="margin-sm media-title-date">
           <div>
             {year}. {month} {day}.
           </div>

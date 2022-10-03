@@ -12,6 +12,12 @@
   padding: 7px 10px 7px 10px;
   transition: all 250ms;
 }
+@media(max-width:550px){
+  .add-btn, .settings-btn{
+    font-size: $size-sm;
+    padding: $size-xs*1.5 $size-sm; 
+  }
+}
 
 .add-btn:hover,
 .add-btn:focus {
