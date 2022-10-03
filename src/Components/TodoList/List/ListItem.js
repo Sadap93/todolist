@@ -69,7 +69,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
       }}
     >
       {isEdit && (
-        <input value={newTitle} onChange={newTitleChangeHandler}></input>
+        <input value={newTitle} onChange={newTitleChangeHandler} className="input-style"></input>
       )}
       {!isEdit && (
         <>
@@ -78,15 +78,18 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
             <div className="flex-center settings">
               <button className="settings-btn" onClick={setStatusHandler}>
                 <FontAwesomeIcon icon={faCheck} className="check-icon" />
+                <div className="tooltip">Change status</div>
               </button>
               <button
                 className="margin-sm settings-btn"
                 onClick={() => setIsEdit(!isEdit)}
               >
                 <FontAwesomeIcon icon={faPencil} className="pencil-icon" />
+                <div className="tooltip">Edit</div>
               </button>
               <button className="settings-btn" onClick={deleteTodoHandler}>
                 <FontAwesomeIcon icon={faTrash} className="trash-icon" />
+                <div className="tooltip">Delete</div>
               </button>
             </div>
             <DateComponent date={date} />
@@ -101,6 +104,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
               onClick={acceptSettingsHandler}
             >
               <FontAwesomeIcon icon={faFloppyDisk} className="check-icon" />
+              <div className="tooltip">Save</div>
             </button>
 
             <button
@@ -108,6 +112,7 @@ const ListItem = ({ title, date, status, setTodos, id, todos }) => {
               onClick={cancelSettingHandler}
             >
               <FontAwesomeIcon icon={faCircleXmark} className="trash-icon" />
+              <div className="tooltip">Cancel</div>
             </button>
           </div>
           <DateComponent

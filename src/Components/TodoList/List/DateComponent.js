@@ -10,7 +10,7 @@ const DateComponent = ({ date, isEdit, newDate, setNewDate }) => {
     <>
       {isEdit && (
         <input
-          className="margin-sm"
+          className="margin-sm input-style"
           type="date"
           value={newDate}
           onChange={newDateChangeHandler}

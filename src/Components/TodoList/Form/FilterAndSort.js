@@ -17,9 +17,9 @@ const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
     const copyTodos = JSON.parse(localStorage.getItem("todoData"));
     const sortedTodos = copyTodos.sort((a, b) => {
       if (event.target.value === "oldestToNewest") {
-        return new Date(a.date) - new Date(b.date);
+        return new Date(new Date(a.date)) - new Date(new Date(b.date));
       } else if (event.target.value === "newestToOldest")
-        return new Date(b.date) - new Date(a.date);
+        return new Date(new Date(b.date)) - new Date(new Date(a.date));
     });
     setTodos([...sortedTodos]);
   };
@@ -28,7 +28,7 @@ const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
     <div className="filter-sort flex-center ">
       <label htmlFor="filter">Filter:</label>
       <select
-        className="margin-sm"
+        className="margin-sm input-style"
         id="filter"
         onChange={onChangeFilterHandler}
       >
@@ -39,7 +39,7 @@ const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
       <label htmlFor="sort">Sort:</label>
       <select
         defaultValue={"default"}
-        className="margin-sm"
+        className="margin-sm input-style"
         id="sort"
         placeholder="Sort your todos"
         onChange={onChangeSortHandler}
