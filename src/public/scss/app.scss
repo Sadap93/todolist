@@ -7,6 +7,7 @@ $btn-active-color: #c85000;
 $btn-wr-color: #f85555;
 $myGreen-color: #0dbc81;
 // global variables: *sizes
+$size-xs: 4px;
 $size-sm: 8px;
 $size-md: 14px;
 $size-lg: 20px;
@@ -31,6 +32,10 @@ $size-xlg: 30px;
   margin: $size-sm auto;
   border-radius: $size-md;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 10px 0px;
+}
+
+.padding-xs {
+  padding: $size-xs
 }
 
 .padding-sm {

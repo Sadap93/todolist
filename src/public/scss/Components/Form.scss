@@ -3,7 +3,7 @@
   background-color: $form-color;
 }
 
-form{
+form {
   justify-content: center;
 }
 
@@ -12,7 +12,7 @@ form{
   justify-content: flex-end;
 }
 
-.fav-icon-sort{
+.fav-icon-sort {
   color: $myGreen-color;
   font-size: $size-md;
 }
@@ -20,9 +20,7 @@ form{
 .input-wrapper {
   height: 60px;
 }
-.input-style{
-  
-  
+.input-style {
   padding: $size-sm;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -35,7 +33,7 @@ form{
 }
 
 .warning {
-    margin-top: -5px;
+  margin-top: -5px;
   display: block;
   padding-left: $size-sm;
   color: $btn-wr-color;
