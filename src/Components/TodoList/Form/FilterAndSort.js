@@ -17,9 +17,9 @@ const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
     const copyTodos = JSON.parse(localStorage.getItem("todoData"));
     const sortedTodos = copyTodos.sort((a, b) => {
       if (event.target.value === "oldestToNewest") {
-        return new Date(a.date) - new Date(b.date);
+        return new Date(new Date(a.date)) - new Date(new Date(b.date));
       } else if (event.target.value === "newestToOldest")
-        return new Date(b.date) - new Date(a.date);
+        return new Date(new Date(b.date)) - new Date(new Date(a.date));
     });
     setTodos([...sortedTodos]);
   };
