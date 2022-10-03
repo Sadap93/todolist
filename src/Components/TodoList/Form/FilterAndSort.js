@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortAmountDownAlt } from "@fortawesome/free-solid-svg-icons";
 
-const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
+const FilterAndSort = ({ todos, setTodos, todosForList, seTodosForList }) => {
 
   const onChangeFilterHandler = (event) => {
     const filteredTodos = todos.filter((todo) => {
@@ -14,14 +14,13 @@ const FilterAndSort = ({ todos, setTodos,seTodosForList }) => {
   };
 
   const onChangeSortHandler = (event) => {
-    const copyTodos = JSON.parse(localStorage.getItem("todoData"));
-    const sortedTodos = copyTodos.sort((a, b) => {
+    const sortedTodos = todosForList.sort((a, b) => {
       if (event.target.value === "oldestToNewest") {
         return new Date(new Date(a.date)) - new Date(new Date(b.date));
       } else if (event.target.value === "newestToOldest")
         return new Date(new Date(b.date)) - new Date(new Date(a.date));
     });
-    setTodos([...sortedTodos]);
+    seTodosForList([...sortedTodos]);
   };
 
   return (

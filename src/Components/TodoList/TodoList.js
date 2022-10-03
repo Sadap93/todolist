@@ -16,7 +16,7 @@ const TodoList = () => {
 
   return (
     <div className="todo-list padding-xs">
-      <Form todos={todos} setTodos={setTodos} seTodosForList={seTodosForList} />
+      <Form todos={todos} setTodos={setTodos} todosForList={todosForList} seTodosForList={seTodosForList} />
       <List todos={todosForList} setTodos={setTodos} />
     </div>
   );
