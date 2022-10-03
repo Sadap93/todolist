@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FilterAndSort from "./FilterAndSort";
 
-const Form = ({ setTodos, todos }) => {
+const Form = ({ setTodos, todos, seTodosForList }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [emptyInputStyle, setEmptyInputStyle] = useState({});
@@ -81,9 +81,9 @@ const Form = ({ setTodos, todos }) => {
         <div className="input-wrapper">
           <input
             style={emptyInputStyle}
-            className="margin-sm"
+            className="margin-sm input-style"
+            maxLength="25"
             type="text"
-
             placeholder="Add new..."
             value={enteredTitle}
             onChange={titleChangeHandler}
@@ -93,7 +93,7 @@ const Form = ({ setTodos, todos }) => {
         <div className="input-wrapper">
           <input
             style={emptyDateStyle}
-            className="margin-sm"
+            className="margin-sm input-style"
             type="date"
             value={enteredDate}
             onChange={dateChangeHandler}
@@ -105,7 +105,11 @@ const Form = ({ setTodos, todos }) => {
           Add
         </button>
       </form>
-      <FilterAndSort todos={todos} setTodos={setTodos} />
+      <FilterAndSort
+        todos={todos}
+        setTodos={setTodos}
+        seTodosForList={seTodosForList}
+      />
     </div>
   );
 };

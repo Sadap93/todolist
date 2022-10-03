@@ -23,3 +23,18 @@
 .settings{
   justify-content: center;
 }
+
+.tooltip {
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding: 4px 8px 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  top: -25px;
+  right: 5px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  white-space: nowrap;
+}
