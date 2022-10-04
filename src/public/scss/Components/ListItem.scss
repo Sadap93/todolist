@@ -38,3 +38,9 @@
   pointer-events: none;
   white-space: nowrap;
 }
+
+@media(max-width: 550px) {
+  .media-title-date{
+    font-size: $size-md*0.8;
+  }
+}

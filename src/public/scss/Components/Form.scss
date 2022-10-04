@@ -20,6 +20,7 @@ form {
 .input-wrapper {
   height: 60px;
 }
+
 .input-style {
   padding: $size-sm;
   border: 2px solid #ccc;
@@ -27,6 +28,7 @@ form {
   background: #fff;
   outline: none;
 }
+
 .input-style:focus {
   border: 2px solid #00bafa;
   transition: 0.3s ease-in-out;
@@ -39,4 +41,28 @@ form {
   color: $btn-wr-color;
   font-size: 10px;
   font-weight: bold;
+}
+
+@media (max-width: 550px) {
+  h3{
+    font-size: $size-md;
+  }
+  .input-wrapper{
+    height: 30px;
+  }
+  .input-style {
+    width: 100px;
+    height: 20px;
+    font-size: $size-sm;
+    padding: $size-xs/2;
+  }
+  .warning {
+    font-size: $size-sm;
+  }
+  label{
+    font-size: $size-sm*1.2;
+  }
+  .fav-icon-sort{
+    font-size: $size-sm*1.2;
+  }
 }
